@@ -66,7 +66,7 @@ public class KafkaProducerController {
 
         producer.send(new ProducerRecord<>(topic, counter++, value));
 
-        return "Some of the services didn't start. Please wait a few seconds and send "+value+" again.";
+        return "Successfully created \""+value+"\" in the \""+topic+"\"!";
     }
 
     @PostMapping("/stopZooKeeper")
