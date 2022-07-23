@@ -8,9 +8,10 @@ public class ZooKeeper {
 
     public static boolean startZooKeeper() {
         try {
-            WindowsCommandRunner.startZooKeeper(KafkaPath.KAFKA_PATH+"\\bin\\windows\\zookeeper-server-start.bat "+ KafkaPath.KAFKA_PATH+"\\config\\zookeeper.properties");
+            WindowsCommandRunner.startZooKeeper();
         } catch (AddressAlreadyInUseException e) {
             e.printStackTrace();
+            isRunning = true;
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -22,7 +23,7 @@ public class ZooKeeper {
 
     public static boolean stopZookeeper() {
         try {
-            WindowsCommandRunner.stopZooKeeper(KafkaPath.KAFKA_PATH+"\\bin\\windows\\zookeeper-server-stop.bat");
+            WindowsCommandRunner.stopZooKeeper();
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Could not stop ZooKeeper");
